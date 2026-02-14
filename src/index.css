@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 152 69% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 152 69% 45%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 152 69% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 220 20% 20%;
+    --sidebar-border: 220 14% 88%;
+    --sidebar-ring: 152 69% 45%;
+
+    /* Custom tokens */
+    --success: 152 69% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 220 20% 7%;
+    --bitcoin: 33 100% 50%;
+    --bitcoin-foreground: 0 0% 100%;
+    --gradient-primary: linear-gradient(135deg, hsl(152 69% 45%), hsl(152 69% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 96%));
+    --gradient-bitcoin: linear-gradient(135deg, hsl(33 100% 50%), hsl(25 100% 45%));
+    --shadow-glow: 0 0 20px hsl(152 69% 45% / 0.12);
+    --shadow-card: 0 4px 20px hsl(220 20% 10% / 0.08);
+  }
+
+  .dark {
+    --background: 220 20% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 18% 11%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 18% 11%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 152 69% 45%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 152 69% 45%;
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 152 69% 45%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 16% 16%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 152 69% 45%;
+
+    --success: 152 69% 45%;
+    --success-foreground: 220 20% 7%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 220 20% 7%;
+    --bitcoin: 33 100% 50%;
+    --bitcoin-foreground: 220 20% 7%;
+    --gradient-primary: linear-gradient(135deg, hsl(152 69% 45%), hsl(152 69% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(220 18% 13%), hsl(220 18% 9%));
+    --gradient-bitcoin: linear-gradient(135deg, hsl(33 100% 50%), hsl(25 100% 45%));
+    --shadow-glow: 0 0 20px hsl(152 69% 45% / 0.15);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-bitcoin {
+    background: var(--gradient-bitcoin);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-bitcoin {
+    background: var(--gradient-bitcoin);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
