@@ -79,28 +79,27 @@ const Auth = () => {
           </motion.p>
 
           {/* Diamond layout */}
-          <div className="relative w-64 h-64 mb-12">
-            {/* Connecting lines (SVG) */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 256 256">
-              <line x1="128" y1="32" x2="32" y2="128" stroke="hsl(var(--border))" strokeWidth="2" />
-              <line x1="128" y1="32" x2="224" y2="128" stroke="hsl(var(--border))" strokeWidth="2" />
-              <line x1="32" y1="128" x2="128" y2="224" stroke="hsl(var(--border))" strokeWidth="2" />
-              <line x1="224" y1="128" x2="128" y2="224" stroke="hsl(var(--border))" strokeWidth="2" />
-              {/* Lines to center */}
-              <line x1="128" y1="32" x2="128" y2="128" stroke="hsl(var(--border))" strokeWidth="1.5" />
-              <line x1="32" y1="128" x2="128" y2="128" stroke="hsl(var(--border))" strokeWidth="1.5" />
-              <line x1="224" y1="128" x2="128" y2="128" stroke="hsl(var(--border))" strokeWidth="1.5" />
-              <line x1="128" y1="224" x2="128" y2="128" stroke="hsl(var(--border))" strokeWidth="1.5" />
+          <div className="relative w-56 h-56 mb-12">
+            {/* Connecting lines */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 224 224">
+              <line x1="112" y1="28" x2="112" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="28" y1="112" x2="112" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="112" y1="28" x2="28" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="112" y1="28" x2="196" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="28" y1="112" x2="112" y2="196" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="196" y1="112" x2="112" y2="196" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="196" y1="112" x2="112" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
+              <line x1="112" y1="196" x2="112" y2="112" stroke="hsl(var(--border))" strokeWidth="2" />
             </svg>
 
-            {/* Center - Wallet icon */}
+            {/* Center - Wallet */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-lg z-10"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-lg z-10"
             >
-              <Wallet className="w-7 h-7 text-foreground" />
+              <Wallet className="w-6 h-6 text-foreground" />
             </motion.div>
 
             {/* Top - Google */}
@@ -109,9 +108,9 @@ const Auth = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3, type: "spring" }}
               onClick={handleGoogleSignIn}
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
             >
-              <svg viewBox="0 0 24 24" className="w-7 h-7">
+              <svg viewBox="0 0 24 24" className="w-6 h-6">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -125,38 +124,38 @@ const Auth = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.4, type: "spring" }}
               onClick={() => setShowEmailForm(true)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
             >
-              <Mail className="w-7 h-7 text-primary" />
+              <Mail className="w-6 h-6 text-primary" />
             </motion.button>
 
-            {/* Right - UPI */}
-            <motion.div
+            {/* Right - UPI (payment method, shown after login) */}
+            <motion.button
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, type: "spring" }}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md opacity-50 z-10"
-              title="Coming soon"
+              onClick={() => { setShowEmailForm(true); toast("Sign in first, then use UPI as a payment method!"); }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
             >
               <span className="text-xs font-bold text-muted-foreground">UPI</span>
-            </motion.div>
+            </motion.button>
 
-            {/* Bottom - Bitcoin */}
-            <motion.div
+            {/* Bottom - Bitcoin (payment method, shown after login) */}
+            <motion.button
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.6, type: "spring" }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-orange-500 border-2 border-orange-400 flex items-center justify-center shadow-md opacity-50 z-10"
-              title="Coming soon"
+              onClick={() => { setShowEmailForm(true); toast("Sign in first, then use Bitcoin as a payment method!"); }}
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-orange-500 border-2 border-orange-400 flex items-center justify-center shadow-md hover:shadow-lg hover:scale-110 transition-all z-10"
             >
-              <Bitcoin className="w-7 h-7 text-white" />
-            </motion.div>
+              <Bitcoin className="w-6 h-6 text-white" />
+            </motion.button>
           </div>
 
           {/* Labels */}
           <div className="text-center space-y-1">
-            <p className="text-xs text-muted-foreground">Tap <strong>Google</strong> or <strong>Email</strong> to get started</p>
-            <p className="text-xs text-muted-foreground/60">UPI & Bitcoin coming soon</p>
+            <p className="text-xs text-muted-foreground">Tap <strong>Google</strong> or <strong>Email</strong> to sign in</p>
+            <p className="text-xs text-muted-foreground/60">UPI & Bitcoin available as payment methods after login</p>
           </div>
         </div>
       </PageTransition>
